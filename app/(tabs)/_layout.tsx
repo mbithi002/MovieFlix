@@ -1,29 +1,21 @@
+import {
+  BookmarkIcon,
+  HomeIcon,
+  ProfileIcon,
+  SearchIcon,
+} from "@/assets/icons";
 import { Tabs } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
-import Bookmark from "../../assets/icons/bookmark.svg";
-import HomeIcon from "../../assets/icons/home.svg";
-import Search from "../../assets/icons/search.svg";
-import User from "../../assets/icons/user.svg";
 
 const TabIcon = ({ Icon, focused, label }: any) => {
   return (
-    <View
-      className={`${
-        focused
-          ? "bg-gray-200 text-background-dark rounded-full px-12 py-4"
-          : "p-4"
-      } flex items-center justify-center w-full mt-4`}
-    >
-      <Icon
-        className={focused ? "text-primary scale-110" : "text-gray-400"}
-        width={24}
-        height={24}
-      />
+    <View className={`flex items-center justify-center w-full gap-1`}>
+      <Icon width={24} height={24} color={focused ? "#AB8BFF" : "#9CA4AB"} />
       <Text
         className={`text-xs font-semibold ${
-          focused ? "text-primary" : "text-gray-400"
-        } leading-tight text-center w-[60px] truncate`}
+          focused ? "text-light-100" : "text-light-300"
+        } truncate text-center w-[60px]`}
       >
         {label}
       </Text>
@@ -36,23 +28,21 @@ const _layout = () => {
     <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "#ffffff",
-          borderRadius: 50,
-          marginHorizontal: 20,
-          marginBottom: 36,
-          height: 52,
+          backgroundColor: "#000000",
+          borderRadius: 32,
+          marginHorizontal: 24,
+          marginBottom: 24,
+          height: 64,
           position: "absolute",
-          overflow: "hidden",
-          borderWidth: 1,
-          borderColor: "#0f0d23",
+          borderTopWidth: 0,
+          elevation: 4,
+          alignItems: "center",
         },
         tabBarShowLabel: false,
         headerShown: false,
         tabBarItemStyle: {
-          width: "100%",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "center",
+          paddingTop: 8,
+          alignSelf: "center",
         },
       }}
     >
@@ -68,7 +58,7 @@ const _layout = () => {
         name="Search"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon Icon={Search} focused={focused} label="Search" />
+            <TabIcon Icon={SearchIcon} focused={focused} label="Search" />
           ),
         }}
       />
@@ -76,7 +66,7 @@ const _layout = () => {
         name="Saved"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon Icon={Bookmark} focused={focused} label="Saved" />
+            <TabIcon Icon={BookmarkIcon} focused={focused} label="Saved" />
           ),
         }}
       />
@@ -84,7 +74,7 @@ const _layout = () => {
         name="Profile"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon Icon={User} focused={focused} label="Profile" />
+            <TabIcon Icon={ProfileIcon} focused={focused} label="Profile" />
           ),
         }}
       />

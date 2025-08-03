@@ -1,5 +1,7 @@
-import Home from "./home.svg";
+import Bookmark from "./Bookmark";
+import Home from "./Home";
+import Profile from "./Profile";
+import Search from "./Search";
 
-export const icons = {
-  Home,
-};
+export { Bookmark as BookmarkIcon, Home as HomeIcon, Profile as ProfileIcon, Search as SearchIcon };
+

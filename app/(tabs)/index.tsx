@@ -1,12 +1,8 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 const index = () => {
-  return (
-    <View>
-      <Text className="text-3xl text-primary font-bold">Welcome!</Text>
-    </View>
-  );
+  return <View className="flex-1 bg-primary"></View>;
 };
 
 export default index;
