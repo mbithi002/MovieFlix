@@ -3,11 +3,18 @@ import React from "react";
 import { TextInput, View } from "react-native";
 
 interface Props {
-  placeHolder: string;
+  placeHolder?: string;
   onPress?: () => void;
+  value: string;
+  onChangeText: (text: string) => void;
 }
 
-const SearchBar = ({ onPress, placeHolder = "Search" }: Props) => {
+const SearchBar = ({
+  onPress,
+  placeHolder = "Search",
+  value,
+  onChangeText,
+}: Props) => {
   return (
     <View className="flex-row items-center bg-dark-200 rounded-full px-5 py-4">
       <SearchIcon
@@ -17,13 +24,12 @@ const SearchBar = ({ onPress, placeHolder = "Search" }: Props) => {
         className="object-contain"
       />
       <TextInput
-        onPress={onPress}
+        onFocus={onPress}
         placeholder={placeHolder}
-        value=""
-        onChange={() => {}}
+        value={value}
+        onChangeText={onChangeText}
         placeholderTextColor="#ab8bff"
-        placeholderClassName="text-white"
-        className="text-white flex-1 mt-2 text-lg"
+        className="text-white flex-1 text-lg"
       />
     </View>
   );
