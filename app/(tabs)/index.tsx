@@ -102,7 +102,7 @@ const Index = () => {
                 key={item.movie_id}
                 poster_url={item.poster_url}
                 title={item.title}
-                onPress={() => console.log(`Selected: ${item.title}`)}
+                movie_id={item.movie_id}
               />
             ))}
           </ScrollView>

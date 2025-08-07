@@ -4,7 +4,6 @@ import { Path, Svg } from "react-native-svg";
 const Bookmark = ({ color = "#FFFFFF", height = 24, width = 24 }: any) => {
   return (
     <Svg
-      xmlns="http://www.w3.org/2000/svg"
       height={height}
       viewBox="0 -960 960 960"
       width={width}
