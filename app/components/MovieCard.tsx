@@ -19,8 +19,8 @@ const MovieCard = ({ movie }: Props) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   return (
-    <Link href={`/movie/${movie?.id}`} asChild>
-      <TouchableOpacity className="w-[30%]">
+    <TouchableOpacity className="w-[30%]">
+      <Link href={`/movie/${movie?.id}`} asChild>
         <View className="rounded-xl overflow-hidden bg-dark-200">
           <Image
             source={{ uri: posterUrl }}
@@ -42,8 +42,8 @@ const MovieCard = ({ movie }: Props) => {
             </Text>
           </View>
         </View>
-      </TouchableOpacity>
-    </Link>
+      </Link>
+    </TouchableOpacity>
   );
 };
 

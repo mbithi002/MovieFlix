@@ -4,6 +4,7 @@ import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
 import MovieCard from "../components/MovieCard";
 import SearchBar from "../components/SearchBar";
 import { fetchMovies } from "../services/api";
+import { updateSearchCount } from "../services/appwrite";
 import useFetch from "../services/useFetch";
 
 const Search = () => {
@@ -35,6 +36,14 @@ const Search = () => {
 
     return () => clearTimeout(delayDebounce);
   }, [searchQuery]);
+
+  useEffect(() => {
+    //@ts-ignore
+    if (searchQuery.trim() && movieData?.results?.length > 0) {
+      //@ts-ignore
+      updateSearchCount(searchQuery, movieData.results[0]);
+    }
+  }, [movieData]);
 
   return (
     <View className="flex-1 bg-primary">
